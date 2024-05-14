@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let address = createAddress('a' , 'b' , 'c');
+        console.log('Factory Function')
+        console.log(address);
+
+        // Factory Function
+        function createAddress(street , city , zipCode) {
+            return {
+                street,
+                city, 
+                zipCode
+            };
+        }
+    </script>
+
+
+    <script>
+
+        let address1 = new Address('a' , 'b' , 'c');
+
+        console.log('Constructor Function')
+
+        console.log(address1);
+        // Constructor Function 
+        function Address(street, city , zipCode) {
+            this.street =street;
+            this.city = city;
+            this.zipCode = zipCode;
+        }
+    </script>
+</body>
+</html>

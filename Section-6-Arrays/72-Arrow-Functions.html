@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const courses = [
+            { id: 1 , name: 'a'},
+            { id: 2 , name: 'b'},
+        ];
+
+        const course = courses.find(course => course.name === 'a');
+
+        const course1 = courses.findIndex(function(course) {
+            return course.name === 'b';
+        });
+
+        const course2 = courses.findIndex(function(course) {
+            return course.name === 'c';
+        });
+
+
+    console.log(course);
+    console.log(course1);
+    console.log(course2);
+
+
+    </script>
+</body>
+</html>
