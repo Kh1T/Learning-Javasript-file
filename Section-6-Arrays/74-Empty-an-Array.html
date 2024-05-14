@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let numbers = [1,2,3,4];
+        let numbers1 = [1, 2, 3, 4];
+        let numbers2 = [1, 2, 3, 4];
+        let numbers3 = [1, 2, 3, 4];
+
+        // Solution 1
+        numbers = [];
+        console.log(numbers);
+
+        // Solution 2
+        numbers1.length = 0 ;
+        console.log(numbers1);
+
+        // Solution 3 
+        numbers2.splice(0, numbers2.length);
+        console.log(numbers2)
+        
+        // Solution 4
+        while (numbers3.length > 0 )
+            numbers3.pop();
+        console.log(numbers3);
+    </script>
+</body>
+</html>

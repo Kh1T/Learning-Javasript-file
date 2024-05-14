@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const first = [{ id: 1}]
+        const second = [2, 3, 4, 5]
+
+        const combine = first.concat(second);
+        // reference type like id can be change too.
+        first[0].id = 10 ;
+        console.log(combine)
+
+        const slice = combine.slice()
+        console.log(slice)
+</script>
+</body>
+</html>
