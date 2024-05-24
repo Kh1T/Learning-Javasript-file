@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        const numbers = [1 , -1, 2 , 3];
+
+        const allPositive = numbers.every(function(value){
+            return value >= 0;
+        });
+
+        const atLeastOnePositive = numbers.some(function(value){
+            return value >= 0;
+        });
+
+        console.log(allPositive);
+        console.log(atLeastOnePositive);
+    </script>
+</body>
+</html>

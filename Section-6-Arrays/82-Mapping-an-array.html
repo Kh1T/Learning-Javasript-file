@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const numbers = [1, -1, 2, 3];
+
+        const items = numbers
+            .filter(n => n >= 0)
+            .map(n => ({ value: n }))
+            .filter(obj => obj.value > 1)
+            .map(obj => obj.value);
+
+        console.log(items);
+    </script>
+</body>
+</html>

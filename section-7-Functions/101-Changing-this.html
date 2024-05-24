@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const video = {
+            title: 'a',
+            tags: ['a' , 'b' , 'c'],
+            showTags() {
+                this.tags.forEach(tag => {
+                    console.log(this.title, tag);
+                });
+            }
+        };
+        video.showTags();
+    </script>
+</body>
+</html>
