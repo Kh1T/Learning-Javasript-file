@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Execution Thread Example</title>
+</head>
+<body>
+    <h1>Hello, Main Thread!</h1>
+    <script>
+        // This script is executed in the main execution thread
+
+        console.log('Executing JavaScript in the main thread.');
+
+        // Simulate a long-running task (blocking operation)
+        function simulateTask() {
+            console.log('Starting a long-running task...');
+            const startTime = Date.now();
+            while (Date.now() - startTime < 5000) {
+                // Perform some computation to simulate work
+            }
+            console.log('Long-running task completed.');
+        }
+
+        simulateTask(); // This call blocks the main thread for approximately 5 seconds
+
+        console.log('Script execution continues after the long-running task.');
+    </script>
+</body>
+</html>

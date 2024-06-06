@@ -1,48 +1,26 @@
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
-def create_pdf(filename):
-    # Create a canvas (PDF) object
-    c = canvas.Canvas(filename, pagesize=letter)
-
-    # Define the content for flashcards and exercises
-    flashcards = [
-        {'question': 'What is JavaScript?', 'answer': 'JavaScript is a scripting language for web development.'},
-        {'question': 'What is a variable?', 'answer': 'A variable is a container for storing data.'},
-        # Add more flashcards as needed
-    ]
-
-    exercises = [
-        {'question': 'Write a function to add two numbers.', 'answer': 'function addNumbers(a, b) { return a + b; }'},
-        {'question': 'What is the output of 2 + 3 * 4?', 'answer': 'The output is 14.'},
-        # Add more exercises as needed
-    ]
+def create_pdf():
+    # Create a canvas (PDF document)
+    c = canvas.Canvas("http_methods_explanation.pdf", pagesize=letter)
 
     # Set font and font size
     c.setFont("Helvetica", 12)
 
-    # Add flashcards to the PDF
-    c.drawString(50, 750, 'JavaScript Basics - Flashcards:')
-    y_pos = 720
-    for card in flashcards:
-        y_pos -= 20
-        c.drawString(50, y_pos, f'Q: {card["question"]}')
-        y_pos -= 15
-        c.drawString(50, y_pos, f'A: {card["answer"]}')
+    # Add content to the PDF
+    c.drawString(100, 750, "HTTP Methods: PUT and POST")
 
-    # Add exercises to the PDF
-    y_pos -= 50
-    c.drawString(50, y_pos, 'JavaScript Basics - Exercises:')
-    y_pos -= 20
-    for ex in exercises:
-        y_pos -= 20
-        c.drawString(50, y_pos, f'Q: {ex["question"]}')
-        y_pos -= 15
-        c.drawString(50, y_pos, f'A: {ex["answer"]}')
+    c.drawString(100, 700, "PUT Method:")
+    c.drawString(120, 680, "- Used to update an existing resource.")
+    c.drawString(120, 660, "- Idempotent: Multiple identical requests have the same effect as a single request.")
 
-    # Save the PDF file
+    c.drawString(100, 620, "POST Method:")
+    c.drawString(120, 600, "- to submit data to be processed to a specified resource.")
+    c.drawString(120, 580, "- Typically used for creating new resources or actions that are not idempotent.")
+
+    # Save the PDF
     c.save()
-    print(f'PDF file "{filename}" created successfully.')
+if __name__ == "__main__":
+    create_pdf()
 
-# Call the function to create the PDF file
-create_pdf('javascript_basics.pdf')

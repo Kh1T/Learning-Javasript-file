@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management API</title>
+</head>
+<body>
+    <h1>Create a New User</h1>
+    <form id="createUserForm">
+        <label for="createName">Name:</label>
+        <input type="text" id="createName" name="name" required>
+        <br>
+        <label for="createEmail">Email:</label>
+        <input type="email" id="createEmail" name="email" required>
+        <br>
+        <label for="createPassword">Password:</label>
+        <input type="password" id="createPassword" name="password" required>
+        <br>
+        <button type="submit">Create User</button>
+    </form>
+
+    <h1>Update an Existing User</h1>
+    <form id="updateUserForm">
+        <label for="updateUserId">User ID:</label>
+        <input type="text" id="updateUserId" name="userId" required>
+        <br>
+        <label for="updateName">Name:</label>
+        <input type="text" id="updateName" name="name">
+        <br>
+        <label for="updateEmail">Email:</label>
+        <input type="email" id="updateEmail" name="email">
+        <br>
+        <label for="updatePassword">Password:</label>
+        <input type="password" id="updatePassword" name="password">
+        <br>
+        <button type="submit">Update User</button>
+    </form>
+
+    <script>
+        const apiEndpoint = 'https://665eaff51e9017dc16f0e927.mockapi.io/api/v1/users';
+
+        document.getElementById('createUserForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('createName').value;
+            const email = document.getElementById('createEmail').value;
+            const password = document.getElementById('createPassword').value;
+
+            try {
+                const response = await fetch(apiEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('User created successfully:', data);
+                } else {
+                    console.error('Error creating user:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+
+        document.getElementById('updateUserForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const userId = document.getElementById('updateUserId').value;
+            const name = document.getElementById('updateName').value;
+            const email = document.getElementById('updateEmail').value;
+            const password = document.getElementById('updatePassword').value;
+
+            try {
+                const response = await fetch(`${apiEndpoint}/${userId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('User updated successfully:', data);
+                } else {
+                    console.error('Error updating user:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
